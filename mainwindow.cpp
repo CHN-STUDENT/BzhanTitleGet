@@ -5,8 +5,8 @@
 #include "QtNetwork/QNetworkReply"
 #include "QtNetwork/QNetworkRequest"
 #include "QTextCodec"
-#include "QDebug"
-QString URL="https://www.bilibili.com/video/";
+//#include "QDebug"
+QString URL="https://m.bilibili.com/video/";
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -29,7 +29,7 @@ void MainWindow::on_INPUT_URL_textChanged(const QString &arg1)
    QRegExp rx1=QRegExp("bilibili.com/video/(av[0-9]{1,})");
    if(url.indexOf(rx1)>=0)
    {
-       QString GETURL=URL+rx1.cap(1)+"/";
+       QString GETURL=URL+rx1.cap(1)+".html";
        manager = new QNetworkAccessManager(this);
        connect(manager, SIGNAL(finished(QNetworkReply*)),this,SLOT(GET_INFO_Finished(QNetworkReply*)));
        manager->get(QNetworkRequest(QUrl(GETURL)));
@@ -39,8 +39,8 @@ void MainWindow::on_INPUT_URL_textChanged(const QString &arg1)
        QRegExp rx2=QRegExp("(av[0-9]{1,})");
        if(url.indexOf(rx2)>=0)
        {
-           QString GETURL=URL+rx2.cap(1)+"/";
-           qDebug()<<GETURL;
+           QString GETURL=URL+rx2.cap(1)+".html";
+      //     qDebug()<<GETURL;
            manager = new QNetworkAccessManager(this);
            connect(manager, SIGNAL(finished(QNetworkReply*)),this,SLOT(GET_INFO_Finished(QNetworkReply*)));
            manager->get(QNetworkRequest(QUrl(GETURL)));
@@ -66,9 +66,9 @@ void MainWindow::GET_INFO_Finished(QNetworkReply *reply)
        //     qDebug()<<pos;
           if (pos>=0)
           {
-              if(rx.cap(1).indexOf("哔哩哔哩 (゜-゜)つロ 干杯~-bilibili")!=-1)
+              if((rx.cap(1).indexOf("视频不见了哟")!=-1)||(rx.cap(1).indexOf("404")!=-1))
               {
-                  ui->OUTPUT_TITLE->setText("找不到此视频，请检查地址是否输入正确!");
+                  ui->OUTPUT_TITLE->setText("视频不见了哟!");
               }
               else
               {
@@ -82,7 +82,7 @@ void MainWindow::GET_INFO_Finished(QNetworkReply *reply)
           }
           else
           {
-             ui->OUTPUT_TITLE->setText("找不到此视频，请检查地址是否输入正确!");
+             ui->OUTPUT_TITLE->setText("视频不见了哟!");
           }
      }
      else

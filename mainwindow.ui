@@ -7,19 +7,19 @@
     <x>0</x>
     <y>0</y>
     <width>386</width>
-    <height>100</height>
+    <height>110</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>386</width>
-    <height>0</height>
+    <height>110</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>386</width>
-    <height>16777215</height>
+    <height>110</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -29,10 +29,10 @@
    <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>30</x>
       <y>10</y>
-      <width>361</width>
-      <height>61</height>
+      <width>341</width>
+      <height>71</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
@@ -73,14 +73,17 @@ p, li { white-space: pre-wrap; }
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>80</y>
+      <x>50</x>
+      <y>85</y>
       <width>291</width>
       <height>16</height>
      </rect>
     </property>
     <property name="text">
-     <string>Idea by Baninn | Made by CHN-STUDENT</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/CHN-STUDENT/BzhanTitleGet&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Idea by Baninn | Made by CHN-STUDENT&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="openExternalLinks">
+     <bool>true</bool>
     </property>
    </widget>
   </widget>
